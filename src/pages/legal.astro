@@ -1,0 +1,126 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import { SITE } from "../lib/blog-data.js";
+
+const lastUpdated = "June 2026";
+---
+<meta name="robots" content="noindex, nofollow" />
+<BaseLayout
+  title={`Privacy & Legal - ${SITE.name}`}
+  description={`How Faultline handles data, what it collects, and your rights as a reader.`}
+  canonical="/legal"
+>
+  <div class="mx-auto max-w-3xl px-5 py-12">
+    <Breadcrumbs items={[{ label: "Home", to: "/" }, { label: "Privacy & Legal" }]} />
+
+    <header class="mt-6">
+      <div class="text-xs font-medium uppercase tracking-[0.2em] text-primary">Legal</div>
+      <h1 class="mt-2 font-serif text-5xl font-semibold leading-[1.05] tracking-tight">
+        Privacy & Legal Notice
+      </h1>
+      <p class="mt-4 text-sm text-muted-foreground">Last updated: {lastUpdated}</p>
+    </header>
+
+    <div class="prose-article mt-10">
+
+      <p>
+        Faultline is an independent journal operated by a single author. This page explains what data
+        is collected when you visit, how it is used, and what you can expect if you contact us or
+        subscribe to the newsletter.
+      </p>
+
+      <h2 id="who-operates-this-site">Who operates this site</h2>
+      <p>
+        Faultline is a personal, editorially independent publication. It is not a registered company
+        or commercial entity. Queries can be directed through the <a href="/contact">contact page</a>.
+      </p>
+
+      <h2 id="hosting-and-infrastructure">Hosting and infrastructure</h2>
+      <p>
+        This site is hosted on <strong>Vercel</strong>. As a condition of serving web traffic, Vercel
+        collects basic telemetry automatically — including page views, general geographic region
+        (country or city level), referring URL, browser type, and device category. This data is
+        aggregated and used solely to understand how the site is performing. Faultline does not have
+        access to individually identifiable visitor records from Vercel. For full details, see
+        <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Vercel's Privacy Policy</a>.
+      </p>
+
+      <h2 id="what-faultline-itself-collects">What Faultline itself collects</h2>
+      <p>
+        Beyond what Vercel collects at the infrastructure level, Faultline collects the following
+        directly:
+      </p>
+      <ul>
+        <li>
+          <strong>Newsletter subscribers:</strong> If you submit your email address via the newsletter
+          form, that address is stored and used only to send you letters from Faultline. It is not
+          sold, shared, rented, or disclosed to any third party for any purpose.
+        </li>
+        <li>
+          <strong>Contact form submissions:</strong> Any message or information you submit through
+          the contact form is received and read only by the site author. It is not stored in any
+          third-party CRM or database, and is not shared with anyone else.
+        </li>
+      </ul>
+      <p>
+        No passwords, payment details, or sensitive personal information are collected at any point.
+      </p>
+
+      <h2 id="third-party-tools">Third-party tools and advertising</h2>
+      <p>
+        Faultline may display advertisements served by third-party networks, which may include
+        <strong>Google AdSense</strong> or similar platforms. These services operate independently
+        and may use cookies or similar tracking technologies to serve personalised ads based on
+        your browsing activity across the web. Faultline does not control what data these services
+        collect or how they use it.
+      </p>
+      <p>
+        You are encouraged to review the privacy policies of any third-party services that may be
+        active on this site, including
+        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's Privacy Policy</a>.
+        You may also opt out of personalised advertising through
+        <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer">Google's Ad Settings</a>
+        or via your browser's cookie controls.
+      </p>
+
+      <h2 id="cookies">Cookies</h2>
+      <p>
+        Faultline itself does not set any first-party cookies. Any cookies present on this site are
+        set by third-party services described above (hosting infrastructure or advertising networks).
+        You can manage or block cookies through your browser settings at any time.
+      </p>
+
+      <h2 id="your-data-your-rights">Your data, your rights</h2>
+      <p>
+        If you have subscribed to the newsletter and wish to be removed, you can unsubscribe at any
+        time via the link in any letter, or by contacting us directly through the
+        <a href="/contact">contact page</a>. Your address will be deleted promptly.
+      </p>
+      <p>
+        If you have submitted a contact form message and wish for it to be deleted, send a request
+        through the contact page and it will be removed.
+      </p>
+
+      <h2 id="external-links">External links</h2>
+      <p>
+        Faultline links to external sources and publications in the course of its editorial work.
+        These sites have their own privacy policies and Faultline takes no responsibility for their
+        content or data practices.
+      </p>
+
+      <h2 id="changes">Changes to this notice</h2>
+      <p>
+        This page may be updated occasionally to reflect changes in how the site operates or what
+        services it uses. The date at the top of this page reflects when it was last revised.
+        Continued use of the site following any update constitutes acceptance of the revised notice.
+      </p>
+
+      <h2 id="a-plain-note">A plain note</h2>
+      <p>
+  Faultline is a one-person publication with no commercial motive for your data. What you read here, what you write to us, and what you subscribe with stays here. That is the intended design, not an afterthought. Any advertising on this site helps offset the cost of keeping it running and independent. 
+      </p>
+
+    </div>
+  </div>
+</BaseLayout>

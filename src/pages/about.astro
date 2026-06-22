@@ -1,0 +1,101 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import { SITE, authors } from "../lib/blog-data.js";
+---
+
+<BaseLayout
+  title={`About - ${SITE.name}`}
+  description={`About Faultline: an independent journal on law, policy, and public institutions.`}
+  canonical="/about"
+>
+  <div class="mx-auto max-w-3xl px-5 py-12">
+    <Breadcrumbs items={[{ label: "Home", to: "/" }, { label: "About" }]} />
+
+    <header class="mt-6">
+      <div class="text-xs font-medium uppercase tracking-[0.2em] text-primary">About</div>
+      <h1 class="mt-2 font-serif text-5xl font-semibold leading-[1.05] tracking-tight">
+        Why Faultline exists.
+      </h1>
+    </header>
+
+    <div class="prose-article mt-10">
+
+      <p>
+        Most policy commentary tells you what happened. Faultline is interested in why the structure
+        allowed it to — and what that reveals about the systems we've agreed to live inside.
+      </p>
+
+      <p>
+        I started this journal because I kept finding that the most important questions in public life
+        weren't being asked at the right level of abstraction. Coverage of governance tends to stop
+        at the event: the failed law, the collapsed institution, the disputed election. I wanted
+        somewhere to go one layer deeper — into the design assumptions, the institutional incentives,
+        and the structural conditions that make certain outcomes nearly inevitable before anyone
+        notices.
+      </p>
+
+      <h2 id="what-this-is">What this is</h2>
+      <p>
+        Faultline is an independent journal of long-form analysis. I write about public policy,
+        governance, law, and the mechanics of statecraft — with no geographic boundary and no
+        editorial line beyond rigour and honesty. The subjects vary. The method doesn't: read
+        carefully, argue from evidence, and say clearly what the evidence suggests.
+      </p>
+      <p>
+        Every piece is researched and written by me. Nothing is published until it can stand on its
+        own — which means the archive grows slowly and deliberately. I consider that a feature.
+      </p>
+
+      <h2 id="what-this-isnt">What this isn't</h2>
+      <p>
+        This is not a news site, and it doesn't try to be timely. It is not affiliated with any
+        political party, advocacy organisation, think tank, or institution. I have no interest in
+        telling you what to believe — only in making the structural argument as clearly as I can and
+        letting you take it from there.
+      </p>
+      <p>
+        I also don't write to provoke. The tone is analytical because the questions deserve it, not
+        because I'm indifferent to the human stakes inside them.
+      </p>
+
+      <h2 id="the-name">The name</h2>
+      <p>
+        A fault line is where pressure accumulates invisibly, over time, until the ground moves.
+        Most institutional failures work the same way — the collapse looks sudden from the outside,
+        but the fracture was there long before anyone looked for it. That's what I'm trying to find:
+        not the earthquake, but the fault.
+      </p>
+
+      <h2 id="get-in-touch">Get in touch</h2>
+      <p>
+        If you have a response to something I've written, a factual correction, or a line of inquiry
+        you think deserves attention, I'd like to hear it. The <a href="/contact">contact page</a> is
+        the right place. I read everything, though I can't always reply promptly.
+      </p>
+      <p>
+        If you'd like new essays delivered when they're ready, the <a href="/#newsletter">newsletter</a>
+        is the most reliable way to follow the journal.
+      </p>
+
+    </div>
+
+    <section class="mt-12 border-t border-border pt-10">
+      <h2 class="font-serif text-2xl font-semibold tracking-tight">Contributors</h2>
+      <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          authors.map((author) => (
+            <a href={`/authors/${author.slug}`} class="group flex items-start gap-3">
+              <img src={author.avatar} alt="" width="48" height="48" class="h-12 w-12 rounded-full" />
+              <div>
+                <div class="font-serif text-base font-semibold group-hover:text-primary">{author.name}</div>
+                <div class="mt-1 text-sm text-muted-foreground">{author.bio}</div>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </section>
+
+  </div>
+</BaseLayout>
