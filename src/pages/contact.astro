@@ -60,7 +60,7 @@ import { SITE } from "../lib/blog-data.js";
 </BaseLayout>
 
 <script>
-  const APPS_SCRIPT_URL = "YOUR_DEPLOYMENT_URL_HERE";
+  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzLOndsYooo0s1CaCp0wiKKr7zj2z9U-FM-0RL8WyHDlG-_AN-1g00n0EhzV1_-cLujoA/exec";
 
   const contactForm = document.querySelector("[data-contact-form]");
   contactForm?.addEventListener("submit", async (event) => {
@@ -72,7 +72,11 @@ import { SITE } from "../lib/blog-data.js";
     const button = contactForm.querySelector("button[type=submit]");
 
     if (!name || !email || !message) return;
-    if (button) button.disabled = true;
+
+    if (button) {
+      button.disabled = true;
+      button.textContent = "Sending...";
+    }
 
     try {
       await fetch(APPS_SCRIPT_URL, {
@@ -84,7 +88,10 @@ import { SITE } from "../lib/blog-data.js";
     }
 
     contactForm.reset();
-    if (button) button.disabled = false;
+    if (button) {
+      button.disabled = false;
+      button.textContent = "Send";
+    }
     const sent = document.querySelector("[data-contact-sent]");
     if (sent) sent.hidden = false;
   });

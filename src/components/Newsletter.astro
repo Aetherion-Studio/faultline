@@ -48,7 +48,7 @@ const { compact = false } = Astro.props;
 }
 
 <script>
-  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxdfIBE45coykdqZTgDM5cqtVaZFTC5c5Abul4H-Y-C/dev";
+  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzLOndsYooo0s1CaCp0wiKKr7zj2z9U-FM-0RL8WyHDlG-_AN-1g00n0EhzV1_-cLujoA/exec";
 
   document.addEventListener("submit", async (event) => {
     const form = event.target;
@@ -60,19 +60,34 @@ const { compact = false } = Astro.props;
 
     const email = input.value;
     const button = form.querySelector("button");
-    if (button) button.disabled = true;
+    if (button) {
+      button.disabled = true;
+      button.textContent = "Subscribing...";
+    }
 
     try {
-      await fetch(APPS_SCRIPT_URL, {
+      const res = await fetch(APPS_SCRIPT_URL, {
         method: "POST",
         body: JSON.stringify({ type: "newsletter", email }),
       });
+      const data = await res.json();
+      if (data.already) {
+        const done = form.parentElement?.querySelector("[data-newsletter-done]");
+        if (done) {
+          done.textContent = "You're already subscribed.";
+          done.hidden = false;
+        }
+        return;
+      }
     } catch (_) {
-      // fail silently — submission still felt successful to user
+      // fail silently — still show success to user
     }
 
     input.value = "";
-    if (button) button.disabled = false;
+    if (button) {
+      button.disabled = false;
+      button.textContent = "Subscribe";
+    }
     const done = form.parentElement?.querySelector("[data-newsletter-done]");
     if (done) done.hidden = false;
   });
