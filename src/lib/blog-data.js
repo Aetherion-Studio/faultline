@@ -8,14 +8,14 @@ const siteUrl = (
 
 export const authors = [
   {
-    slug: "elena-march",
-    name: "Elena March",
+    slug: "ashwani-kumar",
+    name: "Ashwani Kumar",
     bio: "Writer & editor covering design, craft, and slow technology.",
     longBio:
-      "Elena March writes about the quiet edges of design and technology. Previously an editor at two small magazines, she now publishes essays and field notes from a desk overlooking the harbour.",
-    avatar: "https://i.pravatar.cc/200?img=47",
+      "Ashwani Kumar writes about the quiet edges of design and technology. Previously an editor at two small magazines, he now publishes essays and field notes from a desk overlooking the harbour.",
+    avatar: "https://pbs.twimg.com/profile_images/2069040578642501632/9CaqjnHN_400x400.jpg",
   },
-  {
+/*   {
     slug: "samuel-okafor",
     name: "Samuel Okafor",
     bio: "Software engineer with a soft spot for typography and the open web.",
@@ -30,7 +30,7 @@ export const authors = [
     longBio:
       "Mira's work sits at the intersection of place, memory, and the everyday object. Her essays have appeared in a number of small but loved publications.",
     avatar: "https://i.pravatar.cc/200?img=32",
-  },
+  }, */
 ];
 
 export const categories = [
@@ -56,9 +56,15 @@ const isoDate = (date) => date?.toISOString().slice(0, 10);
 
 export const imageSrc = (image) => (typeof image === "string" ? image : image?.src);
 
+export const computeReadingTime = (body, wordsPerMinute = 200) => {
+  const words = body?.trim().split(/\s+/).filter(Boolean).length ?? 0;
+  return Math.max(1, Math.round(words / wordsPerMinute));
+};
+
 export const normalizePost = (entry) => ({
   slug: entry.id,
   ...entry.data,
+  readingTime: entry.data.readingTime ?? computeReadingTime(entry.body),
   date: isoDate(entry.data.date),
   updated: isoDate(entry.data.updated),
 });
