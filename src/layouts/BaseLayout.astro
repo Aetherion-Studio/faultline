@@ -92,5 +92,24 @@ const ogImageUrl = absoluteUrl(ogImage);
       </main>
       <Footer flush={flushFooter} />
     </div>
+<script is:inline src="/scripts/ko-fi-widget.js"></script>
+<script is:inline>
+  kofiWidgetOverlay.draw('faultlineglobal', {
+    'type': 'floating-chat',
+    'floating-chat.donateButton.text': 'Support me',
+    'floating-chat.donateButton.background-color': '#111111',
+    'floating-chat.donateButton.text-color': '#fff'
+  });
+</script>
+<style is:inline>
+  [class^="floatingchat-container-wrap"] {
+    position: fixed !important;
+    bottom: 50px !important;
+    left: auto !important;
+    right: 10px !important;
+  }
+</style>
+
   </body>
+
 </html>

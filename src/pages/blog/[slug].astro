@@ -106,7 +106,15 @@ const jsonLd = {
         <span>{post.readingTime} min read</span>
       </div>
     </header>
-
+{
+  post.tags?.includes("outdated") && (
+    <div class="mx-auto mt-6 max-w-3xl rounded-md border border-amber-500/40 bg-amber-500/10 px-5 py-4 text-center">
+      <p class="text-sm font-medium text-amber-600 dark:text-amber-400">
+        ⚠ This article has been marked as outdated. The information may no longer reflect current developments.
+      </p>
+    </div>
+  )
+}
     {
       post.thumbnail && (
         <figure class="mx-auto mt-10 max-w-4xl">

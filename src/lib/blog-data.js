@@ -42,14 +42,16 @@ export const categories = [
 ];
 
 export const tags = [
-  { slug: "writing", name: "Writing" },
-  { slug: "typography", name: "Typography" },
-  { slug: "minimalism", name: "Minimalism" },
-  { slug: "tools", name: "Tools" },
-  { slug: "travel", name: "Travel" },
-  { slug: "process", name: "Process" },
-  { slug: "web", name: "Web" },
-  { slug: "books", name: "Books" },
+  { slug: "faultline", name: " Faultline" },
+  { slug: "india", name: " India" },
+/*   { slug: "east-asia", name: " East Asia" },
+  { slug: "international", name: " International" },
+  { slug: "public-policy", name: " Public Policy" },
+  { slug: "law", name: " Law" },
+  { slug: "governance", name: " Governance" },
+  { slug: "history", name: " History" },
+  { slug: "statecraft", name: " Statecraft" },
+  { slug: "outdated", name: " Outdated" }, */
 ];
 
 const isoDate = (date) => date?.toISOString().slice(0, 10);
